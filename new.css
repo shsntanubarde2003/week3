@@ -1,0 +1,469 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body,
+html {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    font-family: Arial, sans-serif;
+}
+
+.hero {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    background: white;
+}
+
+.otherConten {
+    width: 100vh;
+    height: 100vh;
+    background-color: red;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2rem;
+    color: white;
+}
+
+.screen {
+    height: 100vh;
+    top: 0;
+}
+
+.blcScr {
+    background-color: black;
+    transform: translateX(0);
+    animation: slideLeft 1.5s ease forwards 0.4s, slideRight 1s ease forwards 3.5s;
+}
+
+.witScr {
+    background-color: white;
+    transform: translateX(100%);
+    animation: slideIn 1.5s ease forwards 0.4s;
+}
+
+/* Centered intro text across both screens */
+.introText {
+    position: absolute;
+    font-size: 4rem;
+    font-weight: bold;
+    font-family: "Roboto Condensed", sans-serif;
+    top: 50%;
+    left: 50%;
+    text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.3);
+    transform: translate(-50%, -50%);
+    background: linear-gradient(to right, white 50%, black 50%);
+    -webkit-background-clip: text;
+    color: transparent;
+    opacity: 0;
+    animation: textFadeIn 1s forwards 2s, textColorChange 1s ease forwards 3.5s;
+}
+
+/* Hero intro section */
+.heroIntro {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 50vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    opacity: 0;
+    animation: fadeInHero 1s forwards 4s;
+}
+
+/* Hero image */
+.heroImg {
+    position: absolute;
+    width: 100%;
+    height: 100vh;
+    object-fit: cover;
+    filter: brightness(0.8);
+    opacity: 0;
+    animation: fadeInImage 1.5s forwards 4s;
+}
+
+.HeroText {
+    position: relative;
+    /* z-index: 5; */
+    padding: 10px;
+    margin: 10px;
+    font-family: "Bebas Neue", sans-serif;
+}
+
+.HeroText p {
+    color: white;
+    margin: 0;
+    opacity: 0;
+    animation: textSlideIn 0.5s ease forwards;
+}
+
+.HeroText p:nth-child(1) {
+    animation-delay: 4.8s;
+    font-size: 1.5rem;
+}
+
+.HeroText p:nth-child(2) {
+    font-size: 3.5rem;
+    animation-delay: 5.3s;
+}
+
+/* Text cycling effect */
+.prof {
+    font-size: 2.5rem;
+    font-weight: bold;
+    opacity: 0;
+    animation: textFadeInOut 6s infinite;
+    display: inline-block;
+}
+
+/* Branding Header */
+.brand-logo {
+    height: 90px;
+    width: auto;
+    margin-left: 51px;
+}
+
+.brand-title {
+    font-size: 26px;
+    font-weight: bold;
+    margin-right: 397px;
+    color: #2c3e50;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+/* Headings */
+h1 {
+    text-align: center;
+    color: #333333;
+    margin-bottom: 20px;
+}
+
+/* Input Field */
+input[type="text"] {
+    width: 262px;
+    margin-top: 39px;
+    margin-left: -126px;
+    /* padding: 12px 16px; */
+    font-size: 16px;
+    margin-bottom: 20px;
+    border: 1px solid #cccccc;
+    border-radius: 8px;
+    box-sizing: border-box;
+    background-color: transparent;
+    color: #000;
+    padding: 10px;
+    outline: none;
+
+}
+
+input[type="password"] {
+    width: 262px;
+    /* padding: 12px 16px; */
+    font-size: 16px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    box-sizing: border-box;
+    background-color: transparent;
+    border: 1px solid #ccc;
+    color: #000;
+    padding: 10px;
+    outline: none;
+
+}
+
+/* Button */
+button {
+    width: 262px;
+    padding: 12px;
+    margin-left: 26px;
+    font-size: 16px;
+    color: #fff;
+    background-color: #007bff;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+/* Card Style */
+.card {
+    background: #ffffff;
+    border-radius: 12px;
+    padding: 30px;
+    font-size: medium;
+    margin-right: 193px;
+    margin-left: -108px;
+    /* margin-top: -119px; */
+    margin-bottom: 170px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    animation: fadeInUp 0.5s ease-in-out;
+}
+
+/* Card Animation */
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.card h3,
+.card h4 {
+    margin-top: 0;
+    color: #222;
+    text-align: left;
+}
+
+.card p {
+    text-align: left;
+    color: #333;
+    margin: 8px 0;
+}
+
+/* Student Photo */
+.card img {
+    max-width: 130px;
+    border-radius: 8px;
+    margin-bottom: 15px;
+    object-fit: cover;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Assignment Status Badges */
+.assignment-status {
+    margin-top: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.assignment-status span {
+    background: #eaeaea;
+    padding: 6px 12px;
+    border-radius: 6px;
+    font-size: 14px;
+}
+
+/* Links */
+.card a {
+    display: inline-block;
+    margin-top: 10px;
+    color: #007bff;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.card a:hover {
+    text-decoration: underline;
+}
+
+/* Chart */
+.chart-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 24px;
+    margin-top: 20px;
+}
+
+.chart-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 120px;
+    text-align: center;
+}
+
+.chart-item p {
+    margin: 6px 0 0;
+    font-size: 14px;
+    color: #333;
+}
+
+canvas {
+    max-width: 100%;
+    height: auto !important;
+}
+
+/* Fullscreen overlay for spinner */
+.spinner-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.7);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+}
+
+/* Spinner itself */
+.spinner {
+    border: 6px solid #f3f3f3;
+    border-top: 6px solid #3498db;
+    border-radius: 50%;
+    width: 140px;
+    height: 140px;
+    animation: spin 1s linear infinite;
+}
+
+/* Animation */
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.hidden {
+    display: none;
+}
+
+/* Toast */
+.toast {
+    visibility: hidden;
+    min-width: 220px;
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 14px;
+    position: fixed;
+    z-index: 999;
+    left: 50%;
+    bottom: 30px;
+    transform: translateX(-50%);
+    opacity: 0;
+    transition: opacity 0.5s, bottom 0.5s;
+}
+
+.toast.show {
+    visibility: visible;
+    opacity: 1;
+    bottom: 50px;
+}
+
+/* Fade in and out animation for cycling text */
+@keyframes textFadeInOut {
+
+    0%,
+    100% {
+        opacity: 0;
+    }
+
+    25%,
+    75% {
+        opacity: 1;
+    }
+}
+
+@keyframes slideLeft {
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(-50%);
+    }
+}
+
+@keyframes slideIn {
+    0% {
+        transform: translateX(100%);
+    }
+
+    100% {
+        transform: translateX(0);
+    }
+}
+
+@keyframes textFadeIn {
+    from {
+        opacity: 0;
+        font-size: 155px;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes textColorChange {
+    0% {
+        color: transparent;
+    }
+
+    100% {
+        color: white;
+        transform: translateX(28%) translateY(-50%);
+    }
+}
+
+@keyframes slideRight {
+    from {
+        transform: translateX(-50%);
+    }
+
+    to {
+        transform: translateX(50%);
+    }
+}
+
+@keyframes fadeInHero {
+    from {
+        opacity: 0;
+        transform: translateY(100%);
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeInImage {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes textSlideIn {
+    0% {
+        transform: translateY(20px);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
